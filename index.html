@@ -1,66 +1,78 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr. Ziko Gamal</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{
-min-height:100vh;
-background:#000;
-background-image: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.95) 100%), url('background.jpg');
-background-size:cover;
-background-position:center top;
-background-repeat:no-repeat;
-background-attachment:fixed;
-display:flex;justify-content:center;
+min-height:100vh;background:#000;
+background-image:url('IMG-20261125-WA7677.jpg');
+background-size:cover;background-position:center top;
+display:flex;justify-content:center;padding:12px;
 color:#fff;
 }
-.wrap{width:100%;max-width:430px;padding:28px 18px 20px;text-align:center}
-.top{letter-spacing:8px;font-size:13px;color:#f5c518;font-weight:bold;margin-bottom:18px}
-.avatar-wrap{width:142px;height:142px;margin:0 auto;position:relative}
-.avatar-wrap::before{content:'';position:absolute;inset:-6px;border:2px solid #c9a227;border-radius:50%}
-.avatar{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid #fff}
-h1{font-size:33px;margin-top:18px;line-height:1.2}
-h1 span{display:block;font-size:33px;color:#fff}
-.job{color:#f5c518;font-weight:bold;font-size:14px;letter-spacing:3px;margin:8px 0 8px}
-.bio{font-size:13px;color:#e8e8e8;line-height:1.7;margin-bottom:22px}
-a{
-display:block;text-decoration:none;
-padding:16px 18px;border-radius:16px;margin-bottom:13px;
-font-weight:bold;font-size:19px;color:#fff;
-border:1px solid rgba(255,255,255,0.35);
-background:rgba(255,255,255,0.12);
-backdrop-filter:blur(6px);
+.card{
+width:100%;max-width:400px;
+background:rgba(20,12,4,0.82);
+border:1px solid rgba(245,197,24,0.35);
+border-radius:28px;
+padding:28px 18px 18px;
 text-align:center;
+backdrop-filter:blur(8px);
 }
-.w1{background:#1e8e3e;border:none}
-.w2{background:#0f6b4a;border:none}
-.fb{background:#1877F2;border:none}
-.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border:none}
-.tk{background:#000;border:1px solid #333}
-.call{background:#f5c518;color:#111;border:none}
-.footer{font-size:12px;color:#bbb;margin-top:16px}
-.footer b{color:#f5c518}
+.avatar{width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid #e8d48a}
+h2{font-size:24px;color:#f5e6a8;margin-top:12px}
+h1{font-size:34px;color:#f5e6a8;line-height:1.1}
+.sub{font-size:12px;color:#e8d48a;margin:10px 0 8px}
+.sub2{font-size:11px;color:#ccc;margin-bottom:14px}
+.pills{display:flex;gap:6px;justify-content:center;margin-bottom:18px;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.15);padding:6px 10px;border-radius:20px;font-size:11px}
+.explore{font-size:22px;color:#f5e6a8;font-weight:bold;margin-bottom:2px}
+.dots{color:#c9a227;letter-spacing:4px;font-size:10px;margin-bottom:16px}
+a{
+display:flex;align-items:center;gap:12px;text-decoration:none;
+background:rgba(255,255,255,0.08);
+border:1px solid #c9a227;
+padding:12px 14px;border-radius:22px;margin-bottom:12px;
+color:#fff;text-align:left;
+}
+a b{font-size:16px;display:block}
+a span{font-size:12px;color:#ddd}
+.icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.wa .icon{background:#25D366}
+.fb .icon{background:#1877F2}
+.ig .icon{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.tk .icon{background:#000;border:1px solid #fff}
+.ph .icon{background:#25D366}
+.footer{font-size:11px;color:#e8d48a;margin-top:10px}
 </style>
 </head>
 <body>
-<div class="wrap">
-<div class="top">H I S T O R Y</div>
-<div class="avatar-wrap"><img class="avatar" src="https://via.placeholder.com/300" alt="Mr Ziko"></div>
-<h1>MR. <span>ZIKO GAMAL</span></h1>
-<div class="job">HISTORY TEACHER</div>
-<p class="bio">من عهد الرسول ﷺ .. إلى مجد الفتوحات<br>التاريخ مش حفظ .. التاريخ حكاية</p>
+<div class="card">
+<img class="avatar" src="https://via.placeholder.com/300" alt="Mr Ziko">
+<h2>History Teacher</h2>
+<h1>Mr. Ziko Gamal</h1>
+<p class="sub">Exploring the Islamic Conquests • 7th-8th Century • Early Islam Era</p>
+<p class="sub2">Lecturer | Historian | Battles • Campaigns • Stories from the Desert</p>
+<div class="pills">
+<div class="pill">⚔️ Battles & Strategy</div>
+<div class="pill">🗺️ Desert Campaigns</div>
+<div class="pill">📚 Weekly Lessons</div>
+</div>
 
-<a class="w1" href="https://wa.me/201028338635">WHATSAPP 1 💬</a>
-<a class="w2" href="https://wa.me/201284243774">WHATSAPP 2 💬</a>
-<a class="fb" href="https://www.facebook.com/ziko.gamal.315">FACEBOOK 👍</a>
-<a class="ig" href="https://www.instagram.com/ziko_gamal_10">INSTAGRAM 📸</a>
-<a class="tk" href="https://www.tiktok.com/@ziko_gamal_10">TIKTOK 🎵</a>
-<a class="call" href="tel:+201028338635">CALL ME 📞</a>
+<div class="explore">Explore & Connect</div>
+<div class="dots">• • • • • • • • • •</div>
 
-<div class="footer">MADE WITH ❤️ BY <b>MR. ZIKO GAMAL</b></div>
+<a class="wa" href="https://wa.me/201028338635"><div class="icon">💬</div><div><b>Chat on WhatsApp 1</b><span>Ask a History Question</span></div></a>
+<a class="wa" href="https://wa.me/201284243774"><div class="icon">💬</div><div><b>Chat on WhatsApp 2</b><span>Ask a History Question</span></div></a>
+<a class="fb" href="https://www.facebook.com/ziko.gamal.315"><div class="icon">f</div><div><b>Follow on Facebook</b><span>Daily History Posts</span></div></a>
+<a class="ig" href="https://www.instagram.com/ziko_gamal_10"><div class="icon">📸</div><div><b>Instagram</b><span>Maps & Battlefield Photos</span></div></a>
+<a class="tk" href="https://www.tiktok.com/@ziko_gamal_10"><div class="icon">🎵</div><div><b>TikTok</b><span>60sec History Breakdowns</span></div></a>
+<a class="ph" href="tel:+201028338635"><div class="icon">📞</div><div><b>Book a Lecture</b><span>Contact by Phone</span></div></a>
+
+<div class="footer">New Video: The Conquest of Damascus • Out Now ▶</div>
 </div>
 </body>
 </html>
