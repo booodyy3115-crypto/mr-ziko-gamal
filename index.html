@@ -54,7 +54,7 @@ a b{font-size:26px}
 </head>
 <body>
 <div class="card">
-<img class="avatar" src="https://via.placeholder.com/300" alt="Mr Ziko">
+<img id="profilePic" class="avatar" src="IMG-20261125-WA0007.jpg" alt="Mr Ziko">
 <h1>Mr. Ziko Gamal</h1>
 
 <a class="wa" href="https://wa.me/201028338635"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 1</b></div></a>
@@ -64,5 +64,20 @@ a b{font-size:26px}
 <a class="tk" href="https://www.tiktok.com/@ziko_gamal_10"><div class="icon"><i class="fa-brands fa-tiktok"></i></div><div><b>TikTok</b></div></a>
 <a class="ph" href="tel:+201028338635"><div class="icon"><i class="fa-solid fa-phone"></i></div><div><b>Call</b></div></a>
 </div>
+
+<script>
+// الـ 6 صور اللي انت رفعتهم
+const pics = [
+"IMG-20261125-WA0007.jpg",
+"IMG-20261125-WA0005.jpg",
+"IMG-20261125-WA0006.jpg",
+"IMG-20261125-WA0004.jpg",
+"IMG-20261125-WA0003.jpg",
+"IMG-20261125-WA0008.jpg"
+];
+const randomPic = pics[Math.floor(Math.random() * pics.length)];
+document.getElementById("profilePic").src = randomPic;
+</script>
+
 </body>
 </html>
