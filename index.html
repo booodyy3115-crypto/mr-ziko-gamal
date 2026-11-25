@@ -41,34 +41,31 @@ a b{font-size:13px;display:block}
 .tk .icon{background:#000;border:1px solid #444}
 .ph .icon{background:#25D366}
 
-/* --- التأثير: باقي الزراير بس بتتشفط --- */
-a.sucked{animation:suckAway 0.7s ease-in forwards}
+/* --- التأثير الجديد: أبطأ وأنعم --- */
+a.sucked{animation:suckAway 1.2s cubic-bezier(0.25,0.8,0.25,1) forwards}
 @keyframes suckAway{
-  0%{transform:scale(1);opacity:1;filter:blur(0)}
-  40%{transform:scale(0.7) rotate(8deg) translateY(10px);opacity:0.7}
-  100%{transform:scale(0) rotate(40deg) translateY(30px);opacity:0;filter:blur(8px)}
+  0%{transform:scale(1) rotate(0deg);opacity:1;filter:blur(0)}
+  50%{transform:scale(0.85) rotate(4deg) translateY(6px);opacity:0.7;filter:blur(1px)}
+  100%{transform:scale(0) rotate(12deg) translateY(20px);opacity:0;filter:blur(4px)}
 }
-/* الزرار اللي اخترته هو اللي بيشفطك */
-a.chosen{animation:chosenSuck 0.9s ease-in forwards;z-index:10;border-color:#f5c518;box-shadow:0 0 30px rgba(245,197,24,0.8)}
+a.chosen{animation:chosenSuck 1.6s cubic-bezier(0.25,0.8,0.25,1) forwards;z-index:10;border-color:#f5c518;box-shadow:0 0 25px rgba(245,197,24,0.5)}
 @keyframes chosenSuck{
   0%{transform:scale(1)}
-  30%{transform:scale(1.15)}
-  60%{transform:scale(1.4)}
-  100%{transform:scale(3.5);opacity:0.9;filter:blur(1px)}
+  40%{transform:scale(1.08)}
+  75%{transform:scale(1.3)}
+  100%{transform:scale(2.2);opacity:0.9;filter:blur(1px)}
 }
-/* الشاشة كلها بتدخل جوه الزرار */
-body.zoom-in{animation:zoomIn 0.9s ease-in forwards}
+body.zoom-in{animation:zoomIn 1.6s cubic-bezier(0.25,0.8,0.25,1) forwards}
 @keyframes zoomIn{
-  0%{transform:scale(1)}
-  100%{transform:scale(2.5);filter:blur(3px)}
+  0%{transform:scale(1);filter:blur(0)}
+  100%{transform:scale(1.6);filter:blur(1.5px)}
 }
-/* دوامة الشفط */
 .vortex{position:fixed;top:50%;left:50%;width:0;height:0;border-radius:50%;pointer-events:none;z-index:999;opacity:0;transform:translate(-50%,-50%)}
-.vortex.active{animation:vortexAnim 0.9s ease-out forwards}
+.vortex.active{animation:vortexAnim 1.6s cubic-bezier(0.25,0.8,0.25,1) forwards}
 @keyframes vortexAnim{
   0%{width:0;height:0;opacity:0;box-shadow:0 0 0 0 rgba(245,197,24,0)}
-  50%{width:300px;height:300px;opacity:1;box-shadow:0 0 100px 60px rgba(245,197,24,0.9)}
-  100%{width:600px;height:600px;opacity:0;box-shadow:0 0 0 0 rgba(245,197,24,0)}
+  50%{width:180px;height:180px;opacity:0.8;box-shadow:0 0 60px 30px rgba(245,197,24,0.6)}
+  100%{width:350px;height:350px;opacity:0;box-shadow:0 0 0 0 rgba(245,197,24,0)}
 }
 
 @media (min-width:768px){
@@ -108,24 +105,20 @@ const pics = [
 const randomPic = pics[Math.floor(Math.random() * pics.length)];
 document.getElementById("profilePic").src = randomPic;
 
-// التأثير: دوس على اي زرار
 document.querySelectorAll('.link-btn').forEach(btn => {
   btn.addEventListener('click', function(e){
     e.preventDefault();
     const targetUrl = this.href;
 
-    // 1. باقي الزراير بس تتشفط وتختفي - صورتك واسمك ثابتين
     document.querySelectorAll('.link-btn').forEach((other, index) => {
       if(other !== btn){
-        other.style.animationDelay = (index * 0.05) + 's';
+        other.style.animationDelay = (index * 0.08) + 's';
         other.classList.add('sucked');
       }
     });
 
-    // 2. الزرار اللي اخترته يكبر ويشفطك جواه
     btn.classList.add('chosen');
 
-    // 3. دوامة + زوم للشاشة كأنك بتدخل جواه
     const vortex = document.getElementById('vortex');
     const rect = btn.getBoundingClientRect();
     vortex.style.top = (rect.top + rect.height/2) + 'px';
@@ -133,8 +126,7 @@ document.querySelectorAll('.link-btn').forEach(btn => {
     vortex.classList.add('active');
     document.body.classList.add('zoom-in');
 
-    // 4. بعد التأثير، روح للينك
-    setTimeout(()=>{ window.location.href = targetUrl; }, 950);
+    setTimeout(()=>{ window.location.href = targetUrl; }, 1600);
   });
 });
 </script>
