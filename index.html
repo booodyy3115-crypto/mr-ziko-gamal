@@ -1,67 +1,85 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>طبل الحرب | الفتوحات الإسلامية</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<title>Mr. Ziko Gamal</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#0a0a0a;color:#fff;font-family:'Cairo',sans-serif;text-align:center;overflow-x:hidden}
-  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;background:radial-gradient(circle at center, rgba(201,162,39,0.18) 0%, transparent 55%),linear-gradient(180deg,#000 0%, #111 50%, #000 100%);position:relative}
-  .hero::before{content:"";position:absolute;inset:15px;border:1px solid rgba(201,162,39,.45);border-radius:20px;pointer-events:none}
-  .hero::after{content:"";position:absolute;inset:22px;border:1px solid rgba(201,162,39,.20);border-radius:16px;pointer-events:none}
-  .bismillah{font-family:'Amiri',serif;color:#c9a227;font-size:22px;margin-bottom:10px}
-  h1{font-size:52px;font-weight:900;line-height:1.2;margin:10px 0}
-  h1 span{color:#c9a227}
-  p{color:#ccc;font-size:17px;line-height:1.8;max-width:550px;margin:10px auto 25px}
-  .btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-  .btn-gold{background:linear-gradient(180deg,#f0d060,#c9a227);color:#000;border:none;padding:16px 32px;font-size:19px;font-weight:900;font-family:'Cairo',sans-serif;border-radius:50px;cursor:pointer;box-shadow:0 10px 30px rgba(201,162,39,.35)}
-  .btn-gold:active{transform:scale(.97)}
-  .btn-dark{background:#222;color:#fff;border:1px solid #c9a227;padding:16px 28px;font-size:17px;font-weight:700;font-family:'Cairo',sans-serif;border-radius:50px;cursor:pointer}
-  .status{margin-top:18px;color:#c9a227;font-weight:700;min-height:24px}
-  .cards{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;padding:30px 15px 50px;background:#0a0a0a}
-  .card{background:#141414;border:1px solid rgba(201,162,39,.35);border-radius:18px;padding:22px 18px;width:300px}
-  .card h3{color:#c9a227;margin-bottom:8px;font-size:20px}
-  .card p{font-size:15px;margin:0;color:#bbb}
-  footer{padding:20px;color:#777;font-size:13px}
-  @media(max-width:600px){h1{font-size:36px}}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{
+min-height:100vh;background:#000;
+background-image:url('IMG-20261125-WA4939.jpg');
+background-size:cover;background-position:center;
+display:flex;justify-content:center;align-items:center;padding:20px 14px;
+color:#fff;
+}
+.card{
+width:100%;max-width:280px;
+background:rgba(20,12,4,0.78);
+border:1px solid rgba(245,197,24,0.35);
+border-radius:22px;
+padding:16px 12px 12px;
+text-align:center;
+backdrop-filter:blur(6px);
+}
+.avatar{width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid #e8d48a}
+h1{font-size:24px;color:#f5e6a8;line-height:1.1;margin-bottom:14px;margin-top:10px}
+a{
+display:flex;align-items:center;gap:10px;text-decoration:none;
+background:rgba(255,255,255,0.08);
+border:1px solid #c9a227;
+padding:9px 10px;border-radius:18px;margin-bottom:8px;
+color:#fff;text-align:left;
+}
+a b{font-size:13px;display:block}
+.icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff}
+.wa .icon{background:#25D366}
+.fb .icon{background:#1877F2}
+.ig .icon{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.tk .icon{background:#000;border:1px solid #444}
+.ph .icon{background:#25D366}
+
+/* --- دي بس اللي اتضافت: زرار الصوت --- */
+.sound-box{display:flex;gap:8px;justify-content:center;margin-bottom:12px}
+.sound-btn{border:1px solid #c9a227;background:#f5c518;color:#000;font-weight:900;font-size:13px;padding:10px 12px;border-radius:50px;cursor:pointer;flex:1}
+.sound-btn.stop{background:rgba(255,255,255,0.08);color:#fff}
+#soundStatus{font-size:12px;color:#f5e6a8;margin-bottom:10px;min-height:16px}
+
+@media (min-width:768px){
+.card{max-width:640px;padding:44px 38px 30px;border-radius:34px}
+.avatar{width:170px;height:170px;border-width:5px}
+h1{font-size:54px;margin-bottom:32px;margin-top:16px}
+a{padding:22px 26px;border-radius:28px;margin-bottom:18px;gap:20px}
+a b{font-size:26px}
+.icon{width:70px;height:70px;font-size:34px}
+.sound-btn{font-size:18px;padding:14px}
+#soundStatus{font-size:15px}
+}
 </style>
 </head>
 <body>
-
-<!-- مشغل اليوتيوب مخفي - مش هيبان -->
+<!-- مشغل اليوتيوب مخفي -->
 <div id="player" style="display:none"></div>
 
-<section class="hero">
-  <div class="bismillah">بسم الله الرحمن الرحيم</div>
-  <div style="font-size:50px">🕌</div>
-  <h1>طبل <span>الحرب</span><br>على طريقة الفتوحات</h1>
-  <p>نفس إيقاع الطبل والنقارة اللي كان بيهز الأرض قبل المعركة، دوس على الزرار واسمع بنفسك.</p>
+<div class="card">
+<img id="profilePic" class="avatar" src="IMG-20261125-WA0007.jpg" alt="Mr Ziko">
+<h1>Mr. Ziko Gamal</h1>
 
-  <div class="btns">
-    <button class="btn-gold" onclick="playWar()">🥁 شغّل طبل الحرب</button>
-    <button class="btn-dark" onclick="stopWar()">⏹ وقّف الصوت</button>
-  </div>
-  <div class="status" id="status">اضغط على الزرار لتشغيل الصوت</div>
-</section>
+<!-- زرار الصوت الجديد -->
+<div class="sound-box">
+  <button class="sound-btn" onclick="playWar()">🥁 طبل الحرب</button>
+  <button class="sound-btn stop" onclick="stopWar()">⏹ وقّف</button>
+</div>
+<div id="soundStatus">دوس على طبل الحرب واسمع</div>
 
-<section class="cards">
-  <div class="card">
-    <h3>🥁 الطبل - Tabl</h3>
-    <p>الطبل الكبير اللي كان بيتشال على الجمل في الحرب، صوته تقيل وبيهز الأرض.</p>
-  </div>
-  <div class="card">
-    <h3>⚔️ النقارة</h3>
-    <p>حلة نحاس كبيرة كانت بتتضرب مع الطبل في دخلة الجيش.</p>
-  </div>
-  <div class="card">
-    <h3>🕌 الدف</h3>
-    <p>كان بيتضرب في النصر والأفراح، مش في الحرب نفسها.</p>
-  </div>
-</section>
-
-<footer>صُمم بروح الفتوحات الإسلامية • ذهبي × أسود</footer>
+<a class="wa" href="https://wa.me/201028338635"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 1</b></div></a>
+<a class="wa" href="https://wa.me/201284243774"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 2</b></div></a>
+<a class="fb" href="https://www.facebook.com/ziko.gamal.315"><div class="icon"><i class="fa-brands fa-facebook-f"></i></div><div><b>Facebook</b></div></a>
+<a class="ig" href="https://www.instagram.com/ziko_gamal_10"><div class="icon"><i class="fa-brands fa-instagram"></i></div><div><b>Instagram</b></div></a>
+<a class="tk" href="https://www.tiktok.com/@ziko_gamal_10"><div class="icon"><i class="fa-brands fa-tiktok"></i></div><div><b>TikTok</b></div></a>
+<a class="ph" href="tel:+201028338635"><div class="icon"><i class="fa-solid fa-phone"></i></div><div><b>Call</b></div></a>
+</div>
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
@@ -69,22 +87,33 @@ let player;
 let isReady = false;
 function onYouTubeIframeAPIReady(){
   player = new YT.Player('player', {
-    height: '0',
-    width: '0',
+    height: '0', width: '0',
     videoId: 'iHrthglb1u8',
     playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: 'iHrthglb1u8' },
     events: { onReady: function(){ isReady = true; } }
   });
 }
 function playWar(){
-  if(!isReady){ document.getElementById('status').innerText = '⏳ جاري تحميل الصوت... دوس تاني بعد ثانيتين'; return; }
+  if(!isReady){ document.getElementById('soundStatus').innerText = '⏳ بيحمّل... دوس تاني بعد ثانيتين'; return; }
   player.playVideo();
-  document.getElementById('status').innerText = '🔊 شغال دلوقتي... طبل الحرب 🥁';
+  document.getElementById('soundStatus').innerText = '🔊 شغال دلوقتي 🥁';
 }
 function stopWar(){
   if(player) player.pauseVideo();
-  document.getElementById('status').innerText = '⏹ وقف الصوت';
+  document.getElementById('soundStatus').innerText = '⏹ وقف الصوت';
 }
+
+// كود صورك زي ما هو
+const pics = [
+"IMG-20261125-WA0007.jpg",
+"IMG-20261125-WA0005.jpg",
+"IMG-20261125-WA0006.jpg",
+"IMG-20261125-WA0004.jpg",
+"IMG-20261125-WA0003.jpg",
+"IMG-20261125-WA0008.jpg"
+];
+const randomPic = pics[Math.floor(Math.random() * pics.length)];
+document.getElementById("profilePic").src = randomPic;
 </script>
 
 </body>
