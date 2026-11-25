@@ -71,4 +71,58 @@ a b{font-size:26px}
 <a class="wa link-btn" href="https://wa.me/201028338635"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 1</b></div></a>
 <a class="wa link-btn" href="https://wa.me/201284243774"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 2</b></div></a>
 <a class="fb link-btn" href="https://www.facebook.com/ziko.gamal.315"><div class="icon"><i class="fa-brands fa-facebook-f"></i></div><div><b>Facebook</b></div></a>
-<a class="ig
+<a class="ig link-btn" href="https://www.instagram.com/ziko_gamal_10"><div class="icon"><i class="fa-brands fa-instagram"></i></div><div><b>Instagram</b></div></a>
+<a class="tk link-btn" href="https://www.tiktok.com/@ziko_gamal_10"><div class="icon"><i class="fa-brands fa-tiktok"></i></div><div><b>TikTok</b></div></a>
+<a class="ph link-btn" href="tel:+201028338635"><div class="icon"><i class="fa-solid fa-phone"></i></div><div><b>Call</b></div></a>
+</div>
+
+<script>
+const pics = [
+"IMG-20261125-WA0007.jpg",
+"IMG-20261125-WA0005.jpg",
+"IMG-20261125-WA0006.jpg",
+"IMG-20261125-WA0004.jpg",
+"IMG-20261125-WA0003.jpg",
+"IMG-20261125-WA0008.jpg"
+];
+document.getElementById("profilePic").src = pics[Math.floor(Math.random() * pics.length)];
+
+// ده اللي بيرجع الزراير كلها تاني
+function resetAll(){
+  document.querySelectorAll('.link-btn').forEach(b=>{
+    b.classList.remove('sucked','chosen');
+    b.style.animationDelay = '';
+    b.style.transform = '';
+    b.style.opacity = '';
+  });
+}
+// شغلها في كل الحالات عشان الزراير متختفيش خالص
+resetAll();
+window.addEventListener('pageshow', resetAll);
+window.addEventListener('focus', resetAll);
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) resetAll(); });
+
+document.querySelectorAll('.link-btn').forEach(btn => {
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    const targetUrl = this.href;
+    if(this.classList.contains('chosen')) return;
+
+    document.querySelectorAll('.link-btn').forEach((other, index) => {
+      if(other !== btn){
+        other.style.animationDelay = (index * 0.03) + 's';
+        other.classList.add('sucked');
+      }
+    });
+    btn.classList.add('chosen');
+
+    // لو فضلت في نفس الصفحة ومروحتش للينك، رجع الزراير بعد ثانيتين
+    setTimeout(resetAll, 2000);
+
+    setTimeout(()=>{ window.location.href = targetUrl; }, 550);
+  });
+});
+</script>
+
+</body>
+</html>
