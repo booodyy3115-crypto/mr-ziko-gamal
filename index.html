@@ -9,7 +9,6 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{
 min-height:100vh;background:#000;
-background-image:url('IMG-20261125-WA4939.jpg');
 background-size:cover;background-position:center;
 display:flex;justify-content:center;align-items:center;padding:20px 14px;
 color:#fff;overflow:hidden;
@@ -93,6 +92,23 @@ a b{font-size:26px}
 </div>
 
 <script>
+// --- الخلفيات الـ 11 - كل مرة تفتح واحدة عشوائي ---
+const backgrounds = [
+  'IMG-20261126-WA7410.jpg',
+  'IMG-20261126-WA3579.jpg',
+  'IMG-20261126-WA0069.jpg',
+  'IMG-20261126-WA6794.jpg',
+  'IMG-20261126-WA4022.jpg',
+  'IMG-20261126-WA1434.jpg',
+  'IMG-20261126-WA8411.jpg',
+  'IMG-20261126-WA5622.jpg',
+  'IMG-20261126-WA0918.jpg',
+  'IMG-20261126-WA6958.jpg',
+  'IMG-20261125-WA4939.jpg'
+];
+document.body.style.backgroundImage = `url('${backgrounds[Math.floor(Math.random() * backgrounds.length)]}')`;
+
+// --- البروفايل زي ما هو ---
 const pics = [
 "IMG-20261125-WA0007.jpg",
 "IMG-20261125-WA0005.jpg",
