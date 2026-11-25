@@ -12,7 +12,7 @@ min-height:100vh;background:#000;
 background-image:url('IMG-20261125-WA4939.jpg');
 background-size:cover;background-position:center;
 display:flex;justify-content:center;align-items:center;padding:20px 14px;
-color:#fff;
+color:#fff;overflow:hidden;
 }
 .card{
 width:100%;max-width:280px;
@@ -40,17 +40,33 @@ a b{font-size:13px;display:block}
 .tk .icon{background:#000;border:1px solid #444}
 .ph .icon{background:#25D366}
 
-/* --- تأثير سريع وخفيف --- */
-a.sucked{animation:suckAway 0.45s ease-out forwards}
+/* --- الباقي يتشفط --- */
+a.sucked{animation:suckAway 0.4s ease-out forwards}
 @keyframes suckAway{
   0%{transform:scale(1);opacity:1}
   100%{transform:scale(0);opacity:0}
 }
-a.chosen{animation:chosenSuck 0.55s ease-out forwards;z-index:10;border-color:#f5c518}
+
+/* --- اللي اخترته هو اللي يشفطك جواه --- */
+a.chosen{
+animation:chosenSuck 0.8s ease-in forwards;
+z-index:50;
+border-color:#f5c518;
+background:#000;
+}
 @keyframes chosenSuck{
   0%{transform:scale(1)}
-  100%{transform:scale(1.25)}
+  25%{transform:scale(1.3)}
+  100%{transform:scale(30);opacity:1;border-radius:50%}
 }
+
+/* الكارت كله يصغر ويدخل جوه الزرار */
+body.sucking .card{animation:cardIn 0.8s ease-in forwards}
+@keyframes cardIn{
+  0%{transform:scale(1);opacity:1}
+  100%{transform:scale(0.1);opacity:0}
+}
+body.sucking h1, body.sucking .avatar{opacity:0}
 
 @media (min-width:768px){
 .card{max-width:640px;padding:44px 38px 30px;border-radius:34px}
@@ -87,7 +103,6 @@ const pics = [
 ];
 document.getElementById("profilePic").src = pics[Math.floor(Math.random() * pics.length)];
 
-// ده اللي بيرجع الزراير كلها تاني
 function resetAll(){
   document.querySelectorAll('.link-btn').forEach(b=>{
     b.classList.remove('sucked','chosen');
@@ -95,8 +110,8 @@ function resetAll(){
     b.style.transform = '';
     b.style.opacity = '';
   });
+  document.body.classList.remove('sucking');
 }
-// شغلها في كل الحالات عشان الزراير متختفيش خالص
 resetAll();
 window.addEventListener('pageshow', resetAll);
 window.addEventListener('focus', resetAll);
@@ -114,12 +129,15 @@ document.querySelectorAll('.link-btn').forEach(btn => {
         other.classList.add('sucked');
       }
     });
-    btn.classList.add('chosen');
 
-    // لو فضلت في نفس الصفحة ومروحتش للينك، رجع الزراير بعد ثانيتين
-    setTimeout(resetAll, 2000);
+    // بعد ما الباقي يختفي، اللي اخترته يشفطك
+    setTimeout(()=>{
+      btn.classList.add('chosen');
+      document.body.classList.add('sucking');
+    }, 350);
 
-    setTimeout(()=>{ window.location.href = targetUrl; }, 550);
+    setTimeout(resetAll, 2500);
+    setTimeout(()=>{ window.location.href = targetUrl; }, 1100);
   });
 });
 </script>
