@@ -41,6 +41,25 @@ a b{font-size:13px;display:block}
 .tk .icon{background:#000;border:1px solid #444}
 .ph .icon{background:#25D366}
 
+/* --- تأثير الشفط القوي --- */
+.suck-btn{background:#f5c518;color:#000;border:none;font-weight:900;padding:11px 14px;border-radius:50px;cursor:pointer;margin-bottom:12px;width:100%;font-size:14px}
+.suck-btn:active{transform:scale(0.97)}
+.sucking{animation:suck 1s ease-in forwards !important}
+@keyframes suck{
+  0%{transform:scale(1) rotate(0deg);opacity:1;filter:blur(0)}
+  30%{transform:scale(0.85) rotate(-5deg)}
+  60%{transform:scale(0.45) rotate(15deg);filter:blur(3px)}
+  85%{transform:scale(0.08) rotate(90deg);filter:blur(8px);opacity:0.6}
+  100%{transform:scale(0) rotate(180deg) translateY(-100px);opacity:0;filter:blur(15px)}
+}
+.vortex{position:fixed;top:50%;left:50%;width:0;height:0;border-radius:50%;box-shadow:0 0 100px 50px rgba(245,197,24,0.8);transform:translate(-50%,-50%);pointer-events:none;z-index:999;opacity:0}
+.vortex.active{animation:vortexAnim 1s ease-out forwards}
+@keyframes vortexAnim{
+  0%{width:0;height:0;opacity:0}
+  50%{width:220px;height:220px;opacity:1}
+  100%{width:0;height:0;opacity:0}
+}
+
 /* Desktop - Bigger */
 @media (min-width:768px){
 .card{max-width:640px;padding:44px 38px 30px;border-radius:34px}
@@ -49,13 +68,18 @@ h1{font-size:54px;margin-bottom:32px;margin-top:16px}
 a{padding:22px 26px;border-radius:28px;margin-bottom:18px;gap:20px}
 a b{font-size:26px}
 .icon{width:70px;height:70px;font-size:34px}
+.suck-btn{font-size:19px;padding:15px}
 }
 </style>
 </head>
 <body>
-<div class="card">
+<div class="vortex" id="vortex"></div>
+
+<div class="card" id="mainCard">
 <img id="profilePic" class="avatar" src="IMG-20261125-WA0007.jpg" alt="Mr Ziko">
 <h1>Mr. Ziko Gamal</h1>
+
+<button class="suck-btn" onclick="doSuck()">🌀 تأثير شفط قوي - دوس هنا</button>
 
 <a class="wa" href="https://wa.me/201028338635"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 1</b></div></a>
 <a class="wa" href="https://wa.me/201284243774"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 2</b></div></a>
@@ -77,6 +101,23 @@ const pics = [
 ];
 const randomPic = pics[Math.floor(Math.random() * pics.length)];
 document.getElementById("profilePic").src = randomPic;
+
+// تأثير الشفط
+function doSuck(){
+  const card = document.getElementById('mainCard');
+  const vortex = document.getElementById('vortex');
+  vortex.classList.remove('active');
+  void vortex.offsetWidth;
+  vortex.classList.add('active');
+  card.classList.add('sucking');
+  setTimeout(()=>{
+    card.style.display='none';
+    setTimeout(()=>{
+      card.style.display='block';
+      card.classList.remove('sucking');
+    }, 1500);
+  },1000);
+}
 </script>
 
 </body>
