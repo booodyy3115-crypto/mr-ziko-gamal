@@ -16,11 +16,12 @@ color:#fff;
 }
 .card{
 width:100%;max-width:280px;
-background:rgba(20,12,4,0.85);
+background:rgba(20,12,4,0.78);
 border:1px solid rgba(245,197,24,0.35);
 border-radius:22px;
 padding:16px 12px 12px;
 text-align:center;
+backdrop-filter:blur(6px);
 }
 .avatar{width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid #e8d48a}
 h1{font-size:24px;color:#f5e6a8;line-height:1.1;margin-bottom:14px;margin-top:10px}
@@ -29,8 +30,7 @@ display:flex;align-items:center;gap:10px;text-decoration:none;
 background:rgba(255,255,255,0.08);
 border:1px solid #c9a227;
 padding:9px 10px;border-radius:18px;margin-bottom:8px;
-color:#fff;text-align:left;position:relative;z-index:2;
-will-change:transform,opacity;
+color:#fff;text-align:left;
 }
 a b{font-size:13px;display:block}
 .icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;color:#fff}
@@ -39,18 +39,6 @@ a b{font-size:13px;display:block}
 .ig .icon{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
 .tk .icon{background:#000;border:1px solid #444}
 .ph .icon{background:#25D366}
-
-/* --- تأثير سريع وخفيف --- */
-a.sucked{animation:suckAway 0.45s ease-out forwards}
-@keyframes suckAway{
-  0%{transform:scale(1);opacity:1}
-  100%{transform:scale(0);opacity:0}
-}
-a.chosen{animation:chosenSuck 0.55s ease-out forwards;z-index:10;border-color:#f5c518}
-@keyframes chosenSuck{
-  0%{transform:scale(1)}
-  100%{transform:scale(1.25)}
-}
 
 @media (min-width:768px){
 .card{max-width:640px;padding:44px 38px 30px;border-radius:34px}
@@ -64,16 +52,16 @@ a b{font-size:26px}
 </head>
 <body>
 
-<div class="card" id="mainCard">
+<div class="card">
 <img id="profilePic" class="avatar" src="IMG-20261125-WA0007.jpg" alt="Mr Ziko">
 <h1>Mr. Ziko Gamal</h1>
 
-<a class="wa link-btn" href="https://wa.me/201028338635"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 1</b></div></a>
-<a class="wa link-btn" href="https://wa.me/201284243774"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 2</b></div></a>
-<a class="fb link-btn" href="https://www.facebook.com/ziko.gamal.315"><div class="icon"><i class="fa-brands fa-facebook-f"></i></div><div><b>Facebook</b></div></a>
-<a class="ig link-btn" href="https://www.instagram.com/ziko_gamal_10"><div class="icon"><i class="fa-brands fa-instagram"></i></div><div><b>Instagram</b></div></a>
-<a class="tk link-btn" href="https://www.tiktok.com/@ziko_gamal_10"><div class="icon"><i class="fa-brands fa-tiktok"></i></div><div><b>TikTok</b></div></a>
-<a class="ph link-btn" href="tel:+201028338635"><div class="icon"><i class="fa-solid fa-phone"></i></div><div><b>Call</b></div></a>
+<a class="wa" href="https://wa.me/201028338635"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 1</b></div></a>
+<a class="wa" href="https://wa.me/201284243774"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 2</b></div></a>
+<a class="fb" href="https://www.facebook.com/ziko.gamal.315"><div class="icon"><i class="fa-brands fa-facebook-f"></i></div><div><b>Facebook</b></div></a>
+<a class="ig" href="https://www.instagram.com/ziko_gamal_10"><div class="icon"><i class="fa-brands fa-instagram"></i></div><div><b>Instagram</b></div></a>
+<a class="tk" href="https://www.tiktok.com/@ziko_gamal_10"><div class="icon"><i class="fa-brands fa-tiktok"></i></div><div><b>TikTok</b></div></a>
+<a class="ph" href="tel:+201028338635"><div class="icon"><i class="fa-solid fa-phone"></i></div><div><b>Call</b></div></a>
 </div>
 
 <script>
@@ -86,42 +74,6 @@ const pics = [
 "IMG-20261125-WA0008.jpg"
 ];
 document.getElementById("profilePic").src = pics[Math.floor(Math.random() * pics.length)];
-
-// ده اللي بيرجع الزراير كلها تاني
-function resetAll(){
-  document.querySelectorAll('.link-btn').forEach(b=>{
-    b.classList.remove('sucked','chosen');
-    b.style.animationDelay = '';
-    b.style.transform = '';
-    b.style.opacity = '';
-  });
-}
-// شغلها في كل الحالات عشان الزراير متختفيش خالص
-resetAll();
-window.addEventListener('pageshow', resetAll);
-window.addEventListener('focus', resetAll);
-document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) resetAll(); });
-
-document.querySelectorAll('.link-btn').forEach(btn => {
-  btn.addEventListener('click', function(e){
-    e.preventDefault();
-    const targetUrl = this.href;
-    if(this.classList.contains('chosen')) return;
-
-    document.querySelectorAll('.link-btn').forEach((other, index) => {
-      if(other !== btn){
-        other.style.animationDelay = (index * 0.03) + 's';
-        other.classList.add('sucked');
-      }
-    });
-    btn.classList.add('chosen');
-
-    // لو فضلت في نفس الصفحة ومروحتش للينك، رجع الزراير بعد ثانيتين
-    setTimeout(resetAll, 2000);
-
-    setTimeout(()=>{ window.location.href = targetUrl; }, 550);
-  });
-});
 </script>
 
 </body>
