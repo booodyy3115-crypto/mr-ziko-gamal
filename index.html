@@ -40,13 +40,13 @@ a b{font-size:13px;display:block}
 .tk .icon{background:#000;border:1px solid #444}
 .ph .icon{background:#25D366}
 
-/* --- تأثير خفيف وسلس - بدون blur ولا زوم تقيل --- */
-a.sucked{animation:suckAway 0.9s ease-out forwards}
+/* --- تأثير سريع وخفيف --- */
+a.sucked{animation:suckAway 0.45s ease-out forwards}
 @keyframes suckAway{
   0%{transform:scale(1);opacity:1}
   100%{transform:scale(0);opacity:0}
 }
-a.chosen{animation:chosenSuck 1.1s ease-out forwards;z-index:10;border-color:#f5c518}
+a.chosen{animation:chosenSuck 0.55s ease-out forwards;z-index:10;border-color:#f5c518}
 @keyframes chosenSuck{
   0%{transform:scale(1)}
   100%{transform:scale(1.25)}
@@ -71,50 +71,4 @@ a b{font-size:26px}
 <a class="wa link-btn" href="https://wa.me/201028338635"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 1</b></div></a>
 <a class="wa link-btn" href="https://wa.me/201284243774"><div class="icon"><i class="fa-brands fa-whatsapp"></i></div><div><b>WhatsApp 2</b></div></a>
 <a class="fb link-btn" href="https://www.facebook.com/ziko.gamal.315"><div class="icon"><i class="fa-brands fa-facebook-f"></i></div><div><b>Facebook</b></div></a>
-<a class="ig link-btn" href="https://www.instagram.com/ziko_gamal_10"><div class="icon"><i class="fa-brands fa-instagram"></i></div><div><b>Instagram</b></div></a>
-<a class="tk link-btn" href="https://www.tiktok.com/@ziko_gamal_10"><div class="icon"><i class="fa-brands fa-tiktok"></i></div><div><b>TikTok</b></div></a>
-<a class="ph link-btn" href="tel:+201028338635"><div class="icon"><i class="fa-solid fa-phone"></i></div><div><b>Call</b></div></a>
-</div>
-
-<script>
-const pics = [
-"IMG-20261125-WA0007.jpg",
-"IMG-20261125-WA0005.jpg",
-"IMG-20261125-WA0006.jpg",
-"IMG-20261125-WA0004.jpg",
-"IMG-20261125-WA0003.jpg",
-"IMG-20261125-WA0008.jpg"
-];
-document.getElementById("profilePic").src = pics[Math.floor(Math.random() * pics.length)];
-
-// حل مشكلة التعليق لما ترجع: امسح التأثير كله
-function resetAll(){
-  document.querySelectorAll('.link-btn').forEach(b=>{
-    b.classList.remove('sucked','chosen');
-    b.style.animationDelay = '';
-  });
-  document.body.classList.remove('zoom-in');
-}
-window.addEventListener('pageshow', resetAll);
-document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) resetAll(); });
-
-document.querySelectorAll('.link-btn').forEach(btn => {
-  btn.addEventListener('click', function(e){
-    e.preventDefault();
-    const targetUrl = this.href;
-    if(this.classList.contains('chosen')) return;
-
-    document.querySelectorAll('.link-btn').forEach((other, index) => {
-      if(other !== btn){
-        other.style.animationDelay = (index * 0.06) + 's';
-        other.classList.add('sucked');
-      }
-    });
-    btn.classList.add('chosen');
-    setTimeout(()=>{ window.location.href = targetUrl; }, 1100);
-  });
-});
-</script>
-
-</body>
-</html>
+<a class="ig
