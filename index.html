@@ -40,16 +40,16 @@ a b{font-size:13px;display:block}
 .tk .icon{background:#000;border:1px solid #444}
 .ph .icon{background:#25D366}
 
-/* --- الباقي يتشفط --- */
-a.sucked{animation:suckAway 0.4s ease-out forwards}
+/* --- الباقي يتشفط بسرعة --- */
+a.sucked{animation:suckAway 0.28s ease-out forwards}
 @keyframes suckAway{
   0%{transform:scale(1);opacity:1}
   100%{transform:scale(0);opacity:0}
 }
 
-/* --- اللي اخترته هو اللي يشفطك جواه --- */
+/* --- اللي اخترته يشفطك على طول --- */
 a.chosen{
-animation:chosenSuck 0.8s ease-in forwards;
+animation:chosenSuck 0.55s ease-in forwards;
 z-index:50;
 border-color:#f5c518;
 background:#000;
@@ -60,8 +60,8 @@ background:#000;
   100%{transform:scale(30);opacity:1;border-radius:50%}
 }
 
-/* الكارت كله يصغر ويدخل جوه الزرار */
-body.sucking .card{animation:cardIn 0.8s ease-in forwards}
+/* الكارت كله يدخل جوه الزرار */
+body.sucking .card{animation:cardIn 0.55s ease-in forwards}
 @keyframes cardIn{
   0%{transform:scale(1);opacity:1}
   100%{transform:scale(0.1);opacity:0}
@@ -123,21 +123,20 @@ document.querySelectorAll('.link-btn').forEach(btn => {
     const targetUrl = this.href;
     if(this.classList.contains('chosen')) return;
 
+    // كله يشتغل في نفس اللحظة - مفيش انتظار
     document.querySelectorAll('.link-btn').forEach((other, index) => {
       if(other !== btn){
-        other.style.animationDelay = (index * 0.03) + 's';
+        other.style.animationDelay = (index * 0.02) + 's';
         other.classList.add('sucked');
       }
     });
 
-    // بعد ما الباقي يختفي، اللي اخترته يشفطك
-    setTimeout(()=>{
-      btn.classList.add('chosen');
-      document.body.classList.add('sucking');
-    }, 350);
+    btn.classList.add('chosen');
+    document.body.classList.add('sucking');
 
-    setTimeout(resetAll, 2500);
-    setTimeout(()=>{ window.location.href = targetUrl; }, 1100);
+    setTimeout(resetAll, 2000);
+    // نقل أسرع: 650 بدل 1100
+    setTimeout(()=>{ window.location.href = targetUrl; }, 650);
   });
 });
 </script>
